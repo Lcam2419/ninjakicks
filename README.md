@@ -98,7 +98,7 @@ Durante o desenvolvimento, evoluí em:
 ## 👨‍💻 Autor
 Lucas Alexandre  
 
-🔗 LinkedIn: (coloca aqui seu perfil)  
+🔗 LinkedIn: www.linkedin.com/in/lucas-alexandre-4b50122aa
 🔗 GitHub: https://github.com/Lcam2419
 
 ---
