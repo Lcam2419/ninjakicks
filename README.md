@@ -7,7 +7,7 @@
 ## 🚀 Demonstração
 
 🔗 Acesse o projeto online:  
-https://SEU-USUARIO.github.io/ninjakicks/
+https://lcam2419.github.io/ninjakicks/
 
 🔗 Repositório:  
 https://github.com/SEU-USUARIO/ninjakicks
