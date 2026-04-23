@@ -10,7 +10,7 @@
 https://lcam2419.github.io/ninjakicks/
 
 🔗 Repositório:  
-https://github.com/SEU-USUARIO/ninjakicks
+https://github.com/Lcam2419
 
 ---
 
