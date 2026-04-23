@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrinho | NinjaKicks</title>
+
+<link rel="icon" href="scr/img/logo.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>🛒 Seu Carrinho</h1>
+</header>
+
+<nav class="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="masculino.html">Masculino</a></li>
+<li><a href="feminino.html">Feminino</a></li>
+<li><a href="infantil.html">Infantil</a></li>
+<li><a href="contato.html">Contato</a></li>
+</ul>
+</nav>
+
+<main class="carrinho-container">
+
+<div id="lista-carrinho"></div>
+
+<h2 id="total"></h2>
+
+<div class="botoes-carrinho">
+<button onclick="limparCarrinho()">🗑️ Limpar</button>
+<button onclick="finalizarCompra()">💳 Finalizar</button>
+</div>
+
+<!-- 🔥 ÁREA DE PAGAMENTO -->
+<div id="pagamento" style="display:none; margin-top:20px;">
+
+<h2>Escolha a forma de pagamento</h2>
+
+<button onclick="pagarPix()">⚡ Pix</button>
+<button onclick="pagarCartao()">💳 Cartão</button>
+
+<div id="area-pagamento"></div>
+
+</div>
+
+</main>
+
+<footer>
+<p>&copy; 2024 NinjaKicks</p>
+</footer>
+
+<script>
+// ===============================
+// 🛒 CARRINHO
+// ===============================
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+let lista = document.getElementById("lista-carrinho");
+let totalElemento = document.getElementById("total");
+
+// RENDERIZAR
+function renderizarCarrinho() {
+    lista.innerHTML = "";
+    let total = 0;
+
+    if (carrinho.length === 0) {
+        lista.innerHTML = "<p>Seu carrinho está vazio 😢</p>";
+        totalElemento.innerText = "";
+        return;
+    }
+
+    carrinho.forEach((produto, index) => {
+        let item = document.createElement("div");
+        item.classList.add("carrinho-item");
+
+        item.innerHTML = `
+            <p><strong>${produto.nome}</strong></p>
+            <p>R$ ${produto.preco}</p>
+
+            <div>
+                <button onclick="diminuir(${index})">➖</button>
+                ${produto.quantidade}
+                <button onclick="aumentar(${index})">➕</button>
+            </div>
+
+            <button onclick="removerItem(${index})">❌</button>
+        `;
+
+        lista.appendChild(item);
+
+        total += produto.preco * produto.quantidade;
+    });
+
+    totalElemento.innerText = "Total: R$ " + total;
+}
+
+// CONTROLE
+function aumentar(index) {
+    carrinho[index].quantidade++;
+    salvar();
+}
+
+function diminuir(index) {
+    if (carrinho[index].quantidade > 1) {
+        carrinho[index].quantidade--;
+    } else {
+        carrinho.splice(index, 1);
+    }
+    salvar();
+}
+
+function removerItem(index) {
+    carrinho.splice(index, 1);
+    salvar();
+}
+
+// SALVAR
+function salvar() {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    renderizarCarrinho();
+}
+
+// LIMPAR
+function limparCarrinho() {
+    localStorage.removeItem("carrinho");
+    carrinho = [];
+    renderizarCarrinho();
+}
+
+// ===============================
+// 💳 PAGAMENTO
+// ===============================
+
+function finalizarCompra() {
+    if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    document.getElementById("pagamento").style.display = "block";
+}
+
+// PIX
+function pagarPix() {
+    let area = document.getElementById("area-pagamento");
+
+    area.innerHTML = `
+        <h3>Pagamento via Pix</h3>
+        <p>Escaneie o QR Code (simulação)</p>
+        <div style="background:white; width:150px; height:150px; margin:auto;"></div>
+        <br>
+        <button onclick="confirmarPagamento()">Já paguei</button>
+    `;
+}
+
+// CARTÃO
+function pagarCartao() {
+    let area = document.getElementById("area-pagamento");
+
+    area.innerHTML = `
+        <h3>Pagamento com Cartão</h3>
+        <input type="text" placeholder="Número do cartão"><br><br>
+        <input type="text" placeholder="Nome no cartão"><br><br>
+        <input type="text" placeholder="Validade"><br><br>
+        <input type="text" placeholder="CVV"><br><br>
+        <button onclick="confirmarPagamento()">Pagar</button>
+    `;
+}
+
+// CONFIRMAR
+function confirmarPagamento() {
+    let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+
+    let total = carrinho.reduce((acc, item) => {
+        return acc + item.preco * item.quantidade;
+    }, 0);
+
+    let novoPedido = {
+        id: Date.now(),
+        itens: carrinho,
+        total: total,
+        data: new Date().toLocaleString(),
+        status: "Pago"
+    };
+
+    pedidos.push(novoPedido);
+
+    localStorage.setItem("pedidos", JSON.stringify(pedidos));
+
+    alert("Pagamento aprovado! 🥷🔥");
+
+    limparCarrinho();
+}
+
+// INICIAR
+renderizarCarrinho();
+</script>
+
+</body>
+</html>

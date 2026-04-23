@@ -1,0 +1,275 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* PADRÃO GLOBAL */
+body{
+    background: #0a0a0a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* TÍTULOS */
+h1, h2{
+    margin: 20px 0;
+}
+
+h1{
+    font-size: 2.5em;
+}
+
+h2{
+    color: red;
+}
+
+/* NAVBAR */
+.nav {
+    display: flex;
+    justify-content: center; /* CENTRALIZA TUDO */
+    align-items: center;
+    padding: 15px;
+    background: #111;
+}
+
+/* lista do menu */
+.nav ul {
+    display: flex;
+    justify-content: center; /* CENTRALIZA OS ITENS */
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav a:hover{
+    color: red;
+}
+
+/* LOGO */
+.logo{
+    width: 300px;
+    margin: 20px auto;
+    animation: flutuar 3s infinite ease-in-out;
+}
+
+@keyframes flutuar{
+    50%{
+        transform: translateY(-10px);
+    }
+}
+
+/* BANNER */
+.banner{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARDS (PRODUTOS E CATEGORIAS) */
+.card {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* CARD PADRÃO */
+.produto-card,
+.destaque-card {
+    transition: 0.3s;
+    width: 220px;
+}
+
+.produto-card:hover,
+.destaque-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255,0,0,0.4);
+}
+
+/* IMAGEM */
+.destaque-imagem,
+.produto-imagem{
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* PREÇO */
+.preco{
+    font-size: 1.3em;
+    color: red;
+    margin: 10px 0;
+}
+
+/* BOTÃO */
+button{
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: darkred;
+}
+
+@media (max-width: 768px) {
+
+    .produto-card,
+    .destaque-card {
+        width: 90%; /* só no celular */
+        max-width: 300px;
+    }
+
+}
+/* CATEGORIAS */
+.categoria{
+    background: #111;
+    border: 1px solid #222;
+    padding: 30px;
+    width: 200px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.categoria:hover{
+    transform: scale(1.05);
+    border-color: red;
+}
+
+/* SEÇÕES */
+section{
+    padding: 40px 20px;
+}
+
+/* VANTAGENS */
+.vantagens{
+    background: #111;
+}
+
+/* AVALIAÇÕES */
+.avaliacoes p{
+    font-style: italic;
+    margin: 10px 0;
+}
+
+/* NEWSLETTER */
+.newsletter input{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+}
+
+/* FORM CONTATO */
+.form-contato{
+    background: #111;
+    padding: 30px;
+    width: 350px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,0,0,0.2);
+}
+
+.form-contato input,
+.form-contato textarea{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-contato textarea{
+    height: 120px;
+}
+
+/* REDES */
+.redes{
+    margin-top: 20px;
+}
+
+/* FOOTER */
+footer{
+    background: #111;
+    padding: 20px;
+    border-top: 1px solid #222;
+}
+
+/* CARRINHO */
+.carrinho-container{
+    max-width: 700px;
+    margin: 40px auto;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carrinho-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.carrinho-item button{
+    margin: 0 5px;
+}
+
+.botoes-carrinho{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#total{
+    margin-top: 20px;
+    color: red;
+}
+
+#pagamento{
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#pagamento button{
+    margin: 10px;
+}
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+}
+
