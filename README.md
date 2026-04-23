@@ -44,4 +44,67 @@ https://github.com/SEU-USUARIO/ninjakicks
 ---
 
 ## 📂 Estrutura do projeto
+ninjakicks/
+│
+├── index.html
+├── masculino.html
+├── feminino.html
+├── infantil.html
+├── contato.html
+├── carrinho.html
+│
+├── style.css
+├── script.js
+│
+└── scr/
+└── img/
 
+
+---
+
+## 🎯 Objetivo do projeto
+
+Este projeto foi desenvolvido com o objetivo de:
+
+- Praticar desenvolvimento front-end
+- Simular um ambiente real de e-commerce
+- Melhorar organização de código
+- Trabalhar responsividade e experiência do usuário
+
+---
+
+## 🧠 Aprendizados
+
+Durante o desenvolvimento, evoluí em:
+
+- Manipulação de DOM com JavaScript
+- Uso de localStorage para persistência de dados
+- Criação de layouts responsivos
+- Organização de arquivos e estrutura de projeto
+- Experiência do usuário (UX)
+
+---
+
+## 🚀 Melhorias futuras
+
+- 🔍 Sistema de busca de produtos
+- 🎯 Filtro por categorias
+- 🧾 Página de produto individual
+- 🌙 Modo escuro/claro
+- 🔐 Integração com backend (futuro)
+
+---
+
+## 👨‍💻 Autor
+Lucas Alexandre  
+
+🔗 LinkedIn: (coloca aqui seu perfil)  
+🔗 GitHub: https://github.com/Lcam2419
+
+---
+
+## ⭐ Considerações
+
+Se você gostou do projeto, deixe uma ⭐ no repositório!
+
+---
